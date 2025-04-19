@@ -11,13 +11,21 @@
   
   <style scoped>
   .cta {
+    width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 40px;
     background-color: #D6F0CF;
     padding: 60px 24px;
+    box-sizing: border-box;
   }
+  
   .cta__btn {
+    /* largeur fixe sur grand écran */
+    width: 300px;
+    flex-shrink: 0;
+  
     font-family: 'Inter', sans-serif;
     font-size: 32px;
     color: #042A2B;
@@ -27,10 +35,35 @@
     padding: 16px 48px;
     cursor: pointer;
     transition: background-color .2s;
+    white-space: nowrap;
   }
+  
   .cta__btn:hover {
     background-color: #042A2B;
     color: #fff;
+  }
+  
+  /* ===== Vertical sous 768px ===== */
+  @media (max-width: 768px) {
+    .cta {
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 16px;
+      gap: 24px;
+    }
+    .cta__btn {
+      /* conservent les 300px jusqu’à 415px */
+      width: 300px;
+    }
+  }
+  
+  /* ===== Adaptation sous 415px ===== */
+  @media (max-width: 415px) {
+    .cta__btn {
+      /* passent à 80vw pour tenir l’écran */
+      width: 80vw;
+      max-width: 300px;
+    }
   }
   </style>
   
