@@ -9,7 +9,7 @@
         <li>
           <span class="how__step">1</span>
           <span class="how__desc">
-            Crée ton compte et révise le Green IT comme un pro !
+            Crée ton compte pour débutertes révisions
           </span>
         </li>
         <li>
@@ -18,7 +18,7 @@
         </li>
         <li>
           <span class="how__step">3</span>
-          <span class="how__desc">Entraîne‑toi avec des quizz</span>
+          <span class="how__desc">Suis ta progression et deviens incollable en Green IT !</span>
         </li>
       </ol>
     </div>

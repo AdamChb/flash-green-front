@@ -1,7 +1,7 @@
 <template>
     <section class="cta">
-      <button class="cta__btn">Cards</button>
-      <button class="cta__btn">Quizz</button>
+      <button class="cta__btn">Cartes</button>
+      <button class="cta__btn">Progression</button>
     </section>
   </template>
   

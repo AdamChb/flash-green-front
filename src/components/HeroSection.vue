@@ -5,7 +5,7 @@
         <p class="hero__subtitle">
           Trop d'infos, pas assez de mémoire ? Respire.  
           <strong>Flash Green</strong> t’aide à réviser l’essentiel du Green IT 
-          avec des flashcards claires et des quiz malins. Apprends vite, retiens 
+          avec des flashcards claires. Apprends vite, retiens 
           durablement, tout en respectant la planète.
         </p>
         <button class="hero__cta">Commence à apprendre !</button>
