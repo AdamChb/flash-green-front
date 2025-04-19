@@ -3,7 +3,7 @@
     <div class="how__text">
       <h2 class="how__title">
         <span class="how__icon">💡</span>
-        Comment utiliser <strong>Flash Green</strong> ?
+        <span class="no-break">Comment utiliser</span> <strong>Flash Green</strong> ?
       </h2>
       <ol class="how__list">
         <li>
@@ -38,7 +38,7 @@ export default {
 .how {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: stretch; 
   justify-content: space-between;
   padding: 80px 24px;
   max-width: 1200px;
@@ -93,7 +93,7 @@ export default {
 
 .how__desc {
   flex: 1;
-  font-size: 20px;
+  font-size: 20px;      
   line-height: 1.386;
   color: #042A2B;
   word-break: break-word;
@@ -101,26 +101,32 @@ export default {
 
 .how__image {
   flex: 1 1 40%;
-  text-align: right;
+  display: flex;
+  align-items: center;     
+  justify-content: center; 
+  padding-left: 24px;      
 }
 
 .how__image img {
   width: 100%;
   max-width: 559px;
   height: auto;
+  display: block;         
 }
 
+.no-break {
+  white-space: nowrap;
+}
+
+
 /* ===== Tablette et petits desktops ===== */
-@media (max-width: 1024px) {
+@media (max-width: 1170px) {
   .how__title {
-    font-size: 42px;
+    font-size: 48px;
     white-space: normal;
   }
-  .how__desc {
-    font-size: 18px;
-  }
   .how__image img {
-    max-width: 350px;
+    max-width: 400px;  
   }
 }
 
@@ -131,12 +137,12 @@ export default {
     padding: 40px 16px;
   }
   .how__text {
-    flex: 1 1 100%;
-    padding-right: 0;
     text-align: center;
+    padding-right: 0;
   }
   .how__title {
-    font-size: 32px;
+    font-size: 48px;
+    white-space: normal;
     margin-bottom: 16px;
   }
   .how__icon {
@@ -146,7 +152,6 @@ export default {
   .how__list li {
     justify-content: center;
   }
-  /* On garde le cercle à 48px pour la visibilité */
   .how__step {
     width: 48px;
     height: 48px;
@@ -154,17 +159,26 @@ export default {
     margin-right: 12px;
   }
   .how__desc {
-    font-size: 16px;
+    font-size: 20px;  
     text-align: left;
   }
+
+  /* ——— CENTRAGE DE L’IMAGE ——— */
   .how__image {
     flex: 1 1 100%;
     text-align: center;
     margin-top: 24px;
+    display: block;
   }
   .how__image img {
+    display: block;
+    max-width: 350px;
+    margin: 0 auto;
     width: 80vw;
     max-width: 300px;
+    height: auto;
   }
 }
+
+
 </style>
