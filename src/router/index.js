@@ -18,7 +18,12 @@ const routes = [
     path: "/register",
     name: "Register",
     component: RegisterView,
-  }
+  },
+  {
+    path: "/cards",
+    name: "Cards",
+    component: CardsView,
+  },
 ];
 
 const router = createRouter({
