@@ -1,12 +1,21 @@
 <template>
-  <div class="login-page">
+  <div class="register-page">
     <section class="auth-page">
       <div class="auth-panel">
-        <h2 class="auth-title">Se connecter</h2>
+        <h2 class="auth-title">S’inscrire</h2>
         <form action="#" class="auth-form">
-          <label for="email">Email</label>
+          <label for="name">Nom</label>
           <input
             type="text"
+            id="name"
+            name="name"
+            placeholder="Ex : John Dupont"
+            required
+          />
+
+          <label for="email">Email</label>
+          <input
+            type="email"
             id="email"
             name="email"
             placeholder="Ex : ajdmab@gmail.com"
@@ -22,11 +31,19 @@
             required
           />
 
-          <button type="submit" class="auth-btn">Se connecter</button>
+          <label for="confirmPassword">Répéter le mot de passe</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="•••••••••••••"
+            required
+          />
+
+          <button type="submit" class="auth-btn">S’inscrire</button>
         </form>
         <p class="auth-foot">
-          Tu n’as pas de compte ? <router-link to="/register">S'inscrire</router-link
-        >
+          Tu as déjà un compte ? <router-link to="/login">Se connecter</router-link>
         </p>
       </div>
     </section>
@@ -37,22 +54,26 @@
 import { ref } from "vue";
 
 export default {
-  name: "LoginView",
+  name: "RegisterView",
   setup() {
-    const username = ref("");
+    const name = ref("");
+    const email = ref("");
     const password = ref("");
+    const confirmPassword = ref("");
 
     return {
-      username,
+      name,
+      email,
       password,
+      confirmPassword,
     };
   },
 };
 </script>
 
 <style scoped>
-.login-page {
-  background-image: url("@/assets/images/globe.webp"); /* image très lourde */
+.register-page {
+  background-image: url("@/assets/images/globe.webp");
   background-size: cover;
   background-attachment: fixed;
   min-height: 100vh;
@@ -64,11 +85,11 @@ export default {
     background-position: 0 0;
   }
   100% {
-    background-position: 1000px 1000px;
+    background-position: 2000px 2000px; 
   }
 }
 
-/* Styles lourds et volontairement non optimisés */
+/* Styles volontairement lourds */
 .auth-page {
   display: flex;
   justify-content: center;
@@ -78,22 +99,22 @@ export default {
 
 .auth-panel {
   background-color: #ffffff;
-  padding: 40px 30px; 
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5); /* grosse ombre */
+  padding: 40px 30px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.6); /* grosse ombre */
   border-radius: 24px;
-  max-width: 600px; 
+  max-width: 600px;
   width: 100%;
 }
 
 .auth-title {
-  font-size: 48px; /* titre immense */
+  font-size: 48px; /* très grand titre */
   margin-bottom: 50px;
 }
 
 .auth-form {
   display: flex;
   flex-direction: column;
-  gap: 40px; /* écart géant entre les inputs */
+  gap: 40px; /* espace énorme entre les champs */
 }
 
 .auth-form label {
@@ -110,7 +131,7 @@ export default {
 .auth-btn {
   padding: 25px;
   font-size: 28px;
-  background-color: #CDB4DB;
+  background-color: #cdb4db;
   color: black;
   border: none;
   border-radius: 15px;
@@ -118,7 +139,7 @@ export default {
 }
 
 .auth-btn:hover {
-  background-color:rgb(193, 156, 214);
+  background-color: rgb(193, 156, 214);
 }
 
 .auth-foot {
@@ -128,12 +149,11 @@ export default {
 }
 
 .auth-foot a {
-  color: #CDB4DB;
+  color: #cdb4db;
   text-decoration: underline;
 }
 
 .auth-foot a:hover {
-  color:rgb(193, 156, 214);
+  color: rgb(193, 156, 214);
 }
-
 </style>
