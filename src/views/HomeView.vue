@@ -7,13 +7,12 @@
 </template>
 
 <script>
-import Header          from '@/components/Header.vue'
-import HeroSection     from '@/components/HeroSection.vue'
-import HowToUseSection from '@/components/HowToUseSection.vue'
-import CtaSection      from '@/components/CtaSection.vue'
+import HeroSection from "@/components/HeroSection.vue";
+import HowToUseSection from "@/components/HowToUseSection.vue";
+import CtaSection from "@/components/CtaSection.vue";
 
 export default {
-  name: 'HomeView',
-  components: { Header, HeroSection, HowToUseSection, CtaSection }
-}
+  name: "HomeView",
+  components: { HeroSection, HowToUseSection, CtaSection },
+};
 </script>
