@@ -25,8 +25,8 @@
           <button type="submit" class="auth-btn">Se connecter</button>
         </form>
         <p class="auth-foot">
-          Tu n’as pas de compte ? <router-link to="/register">S'inscrire</router-link
-        >
+          Tu n’as pas de compte ?
+          <router-link to="/register">S'inscrire</router-link>
         </p>
       </div>
     </section>
@@ -52,7 +52,7 @@ export default {
 
 <style scoped>
 .login-page {
-  background-image: url("@/assets/images/globe.webp");
+  background-image: url("@/assets/images/globe.webp"); /* image très lourde */
   background-size: cover;
   background-attachment: fixed;
   animation: backgroundScroll 30s linear infinite;
@@ -66,7 +66,7 @@ export default {
     background-position: 0 0;
   }
   100% {
-    background-position: 2000px 2000px; 
+    background-position: 1000px 1000px;
   }
 }
 
@@ -90,14 +90,14 @@ export default {
 }
 
 .auth-title {
-  font-size: 40px; 
+  font-size: 40px;
   margin-bottom: 30px;
 }
 
 .auth-form {
   display: flex;
   flex-direction: column;
-  gap: 20px; 
+  gap: 20px;
 }
 
 .auth-form label {
