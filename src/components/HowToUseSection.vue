@@ -10,7 +10,7 @@
         <li>
           <span class="how__step">1</span>
           <span class="how__desc">
-            Crée ton compte pour débutertes révisions
+            Crée ton compte pour débuter tes révisions
           </span>
         </li>
         <li>
