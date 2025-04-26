@@ -52,10 +52,13 @@ export default {
 
 <style scoped>
 .login-page {
-  background-image: url("@/assets/images/globe.webp"); /* image très lourde */
+  background-image: url("@/assets/images/globe.webp");
   background-size: cover;
   background-attachment: fixed;
   animation: backgroundScroll 30s linear infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -66,28 +69,31 @@ export default {
     background-position: 0 0;
   }
   100% {
-    background-position: 1000px 1000px;
+    background-position: 2000px 2000px;
   }
 }
 
+/* Styles volontairement lourds */
 /* Styles volontairement lourds */
 .auth-page {
   max-width: 500px;
   width: 100%;
   margin: 80px auto 40px;
+  max-width: 500px;
+  width: 100%;
+  margin: 80px auto 40px;
   display: flex;
+  flex-direction: column;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
 }
 
 .auth-panel {
   background-color: #ffffff;
-  padding: 40px 30px;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5); /* grosse ombre */
+  padding: 70px 40px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.6); /* grosse ombre */
   border-radius: 24px;
-  max-width: 600px;
   width: 100%;
 }
 
@@ -104,18 +110,19 @@ export default {
 
 .auth-form label {
   font-size: 18px;
+  font-size: 18px;
 }
 
 .auth-form input {
-  padding: 25px;
-  font-size: 24px;
+  padding: 20px;
+  font-size: 18px;
   border: 2px solid #cccccc;
   border-radius: 10px;
 }
 
 .auth-btn {
-  padding: 25px;
-  font-size: 28px;
+  padding: 20px;
+  font-size: 24px;
   background-color: #cdb4db;
   color: black;
   border: none;
@@ -125,9 +132,12 @@ export default {
 
 .auth-btn:hover {
   background-color: rgb(193, 156, 214);
+  background-color: rgb(193, 156, 214);
 }
 
 .auth-foot {
+  margin-top: 25px;
+  font-size: 16px;
   margin-top: 25px;
   font-size: 16px;
   text-align: center;
@@ -135,14 +145,12 @@ export default {
 
 .auth-foot a {
   color: #cdb4db;
+  color: #cdb4db;
   text-decoration: underline;
 }
 
 .auth-foot a:hover {
   color: rgb(193, 156, 214);
-}
-
-.auth-foot a:hover {
   color: rgb(193, 156, 214);
 }
 
