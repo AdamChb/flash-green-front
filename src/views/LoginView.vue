@@ -72,16 +72,16 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 100px 50px;
   min-height: 100vh;
 }
 
 .auth-panel {
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 80px; /* énorme padding */
+  background-color: #ffffff;
+  padding: 40px 30px; 
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.5); /* grosse ombre */
-  border-radius: 30px;
-  width: 600px; /* panel très large */
+  border-radius: 24px;
+  max-width: 600px; 
+  width: 100%;
 }
 
 .auth-title {
@@ -109,7 +109,7 @@ export default {
 .auth-btn {
   padding: 25px;
   font-size: 28px;
-  background-color: #2c7a7b;
+  background-color: #CDB4DB;
   color: white;
   border: none;
   border-radius: 15px;
@@ -117,7 +117,7 @@ export default {
 }
 
 .auth-btn:hover {
-  background-color: #285e61;
+  background-color:rgb(193, 156, 214);
 }
 
 .auth-foot {
@@ -127,7 +127,12 @@ export default {
 }
 
 .auth-foot a {
-  color: #2c7a7b;
+  color: #CDB4DB;
   text-decoration: underline;
 }
+
+.auth-foot a:hover {
+  color:rgb(193, 156, 214);
+}
+
 </style>
