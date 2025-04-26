@@ -107,8 +107,8 @@ export default {
 }
 
 .auth-form input {
-  padding: 20px;
-  font-size: 18px;
+  padding: 25px;
+  font-size: 24px;
   border: 2px solid #cccccc;
   border-radius: 10px;
 }
@@ -117,7 +117,7 @@ export default {
   padding: 25px;
   font-size: 28px;
   background-color: #cdb4db;
-  color: white;
+  color: black;
   border: none;
   border-radius: 15px;
   cursor: pointer;
