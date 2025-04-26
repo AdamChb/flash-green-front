@@ -23,7 +23,7 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: 'Inter', sans-serif;
-  background: #F8FFF4; /* ou la couleur de fond souhaitée */
+  background: #F8FFF4; 
 }
 #app {
   min-height: 100vh;
