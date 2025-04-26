@@ -1,6 +1,5 @@
 <template>
   <div class="login-page">
-
     <section class="auth-page">
       <div class="auth-panel">
         <h2 class="auth-title">Se connecter</h2>
@@ -30,37 +29,29 @@
         </p>
       </div>
     </section>
-
   </div>
 </template>
 
 <script>
-import Header from '@/components/Header.vue';
-import Footer from '@/components/Footer.vue';
-
-import { ref } from 'vue';
+import { ref } from "vue";
 
 export default {
-  name: 'LoginView',
-  components: {
-    Header,
-    Footer
-  },
+  name: "LoginView",
   setup() {
-    const username = ref('');
-    const password = ref('');
+    const username = ref("");
+    const password = ref("");
 
     return {
       username,
-      password
+      password,
     };
-  }
+  },
 };
 </script>
 
 <style scoped>
 .login-page {
-  background-image: url('@/assets/globe.png'); /* image très lourde */
+  background-image: url("@/assets/images/globe.webp"); /* image très lourde */
   background-size: cover;
   background-attachment: fixed;
   min-height: 100vh;
@@ -68,8 +59,12 @@ export default {
 }
 
 @keyframes backgroundScroll {
-  0% { background-position: 0 0; }
-  100% { background-position: 1000px 1000px; }
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 1000px 1000px;
+  }
 }
 
 /* Styles lourds et volontairement non optimisés */

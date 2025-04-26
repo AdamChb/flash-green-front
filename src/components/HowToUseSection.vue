@@ -3,7 +3,8 @@
     <div class="how__text">
       <h2 class="how__title">
         <span class="how__icon">💡</span>
-        <span class="no-break">Comment utiliser</span> <strong>Flash Green</strong> ?
+        <span class="no-break">Comment utiliser</span>
+        <strong>Flash Green</strong> ?
       </h2>
       <ol class="how__list">
         <li>
@@ -18,32 +19,37 @@
         </li>
         <li>
           <span class="how__step">3</span>
-          <span class="how__desc">Suis ta progression et deviens incollable en Green IT !</span>
+          <span class="how__desc"
+            >Suis ta progression et deviens incollable en Green IT !</span
+          >
         </li>
       </ol>
     </div>
     <div class="how__image">
-      <img src="@/assets/globe.png" alt="Illustration globe Flash Green" />
+      <img
+        src="@/assets/images/globe.webp"
+        alt="Illustration globe Flash Green"
+      />
     </div>
   </section>
 </template>
 
 <script>
 export default {
-  name: 'HowToUseSection'
-}
+  name: "HowToUseSection",
+};
 </script>
 
 <style scoped>
 .how {
   display: flex;
   flex-direction: row;
-  align-items: stretch; 
+  align-items: stretch;
   justify-content: space-between;
   padding: 80px 24px;
   max-width: 1200px;
   margin: 0 auto;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .how__text {
@@ -52,7 +58,7 @@ export default {
 }
 
 .how__title {
-  color: #042A2B;
+  color: #042a2b;
   font-size: 48px;
   line-height: 1.2;
   margin-bottom: 24px;
@@ -84,7 +90,7 @@ export default {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #042A2B;
+  background-color: #042a2b;
   color: #fff;
   border-radius: 50%;
   font-size: 24px;
@@ -93,31 +99,30 @@ export default {
 
 .how__desc {
   flex: 1;
-  font-size: 20px;      
+  font-size: 20px;
   line-height: 1.386;
-  color: #042A2B;
+  color: #042a2b;
   word-break: break-word;
 }
 
 .how__image {
   flex: 1 1 40%;
   display: flex;
-  align-items: center;     
-  justify-content: center; 
-  padding-left: 24px;      
+  align-items: center;
+  justify-content: center;
+  padding-left: 24px;
 }
 
 .how__image img {
   width: 100%;
   max-width: 559px;
   height: auto;
-  display: block;         
+  display: block;
 }
 
 .no-break {
   white-space: nowrap;
 }
-
 
 /* ===== Tablette et petits desktops ===== */
 @media (max-width: 1170px) {
@@ -126,7 +131,7 @@ export default {
     white-space: normal;
   }
   .how__image img {
-    max-width: 400px;  
+    max-width: 400px;
   }
 }
 
@@ -159,7 +164,7 @@ export default {
     margin-right: 12px;
   }
   .how__desc {
-    font-size: 20px;  
+    font-size: 20px;
     text-align: left;
   }
 
@@ -179,6 +184,4 @@ export default {
     height: auto;
   }
 }
-
-
 </style>
