@@ -1,15 +1,28 @@
 <template>
-    <div class="progress-summary">
-        <p>Cartes maîtrisées : <strong>12 / 20</strong></p>
-        <div class="progress-bar">
-            <div class="progress-fill" style="width:60%;"></div>
-        </div>
+  <div class="progress-summary">
+    <p>Cartes maîtrisées : <strong>{{ known }} / {{ total }}</strong></p>
+    <div class="progress-bar">
+      <div
+        class="progress-fill"
+        :style="{ width: total ? (known / total) * 100 + '%' : '0%' }"
+      ></div>
     </div>
+  </div>
 </template>
 
 <script>
 export default {
   name: "ProgressionBar",
+  props: {
+    known: {
+      type: Number,
+      required: true,
+    },
+    total: {
+      type: Number,
+      required: true,
+    },
+  },
 };
 </script>
 

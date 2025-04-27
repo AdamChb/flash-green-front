@@ -1,34 +1,40 @@
-ProgressionPanel.vue : 
 <template>
-    <div class="progress-panel">
-      <h2>À revoir</h2>
-      <table class="progress-table">
-        <thead>
-          <tr>
-            <th>Question</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Qu’est-ce que le Green IT ?</td>
-            <td><button class="btn-small">Relire</button></td>
-          </tr>
-          <tr>
-            <td>Quel est l’impact des datacenters ?</td>
-            <td><button class="btn-small">Relire</button></td>
-          </tr>
-          <!-- … autres lignes en mockup … -->
-        </tbody>
-      </table>
-    </div>
+  <div class="progress-panel">
+    <h2>À revoir</h2>
+    <table class="progress-table" v-if="unknown.length > 0">
+      <thead>
+        <tr>
+          <th>Question</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="item in unknown" :key="item.id">
+          <td>{{ item.Intitule }}</td>
+          <td>
+            <a :href="'/card.html?id=' + item.id">
+              <button class="btn-small">Relire</button>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p v-else>Aucune carte à revoir, bravo ! 🎉</p>
+  </div>
 </template>
 
 <script>
 export default {
   name: "ProgressionPanel",
+  props: {
+    unknown: {
+      type: Array,
+      required: true,
+    },
+  },
 };
 </script>
+
 
 <style scoped>
 .progress-panel {
@@ -83,19 +89,4 @@ export default {
   opacity: 0.8;
 }
 
-/* Responsive simple */
-@media (max-width: 600px) {
-  .progress-panel {
-    padding: 20px;
-  }
-  .progress-table th,
-  .progress-table td {
-    font-size: 14px;
-    padding: 12px 8px;
-  }
-  .btn-small {
-    padding: 6px 12px;
-    font-size: 12px;
-  }
-}
 </style>
