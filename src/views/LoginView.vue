@@ -69,7 +69,7 @@ export default {
         localStorage.setItem("token", data.token);
         localStorage.setItem("userId", data.userId);
 
-        router.push("/cards"); // Rediriger avec Vue Router proprement
+        router.push("/");
       } catch (error) {
         console.error("Erreur de connexion:", error);
         alert("Connexion échouée. Vérifie tes identifiants.");

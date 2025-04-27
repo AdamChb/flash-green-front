@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import LoginView from "../views/LoginView.vue";
 import RegisterView from "../views/RegisterView";
 import ProgressionView from "../views/ProgressionView";
+import AdminView from "../views/AdminView.vue";
 
 const routes = [
   {
@@ -25,7 +26,10 @@ const routes = [
     name: "Progression",
     component: ProgressionView,
     meta: { requiresAuth: true },
-  }
+  },
+  { path: '/admin', 
+    name: 'Admin', 
+    component: AdminView },
 ];
 
 const router = createRouter({
