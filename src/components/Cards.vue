@@ -1,7 +1,9 @@
 <template>
   <div class="cards-page">
     <h1 class="cards-title">Cartes</h1>
-    <a href="progress.html" class="cards-progress-btn">Voir ma progression</a>
+    <router-link class="cards-progress-btn" to="/progression"
+      >Voir ma progression</router-link
+    >
 
     <div class="card-panel">
       <!-- ─────────── Bouton « mauvaise réponse » -->
