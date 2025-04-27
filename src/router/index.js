@@ -24,12 +24,25 @@ const routes = [
     path: "/progression",
     name: "Progression",
     component: ProgressionView,
+    meta: { requiresAuth: true },
   }
 ];
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  const token = localStorage.getItem("token");
+
+  if (to.meta.requiresAuth && !token) {
+    alert("Tu dois être connecté pour accéder à la progression.");
+    // Si la route nécessite d'être connecté mais qu'on n'a pas de token
+    next("/login"); // Redirection vers /login
+  } else {
+    next(); // Sinon navigation autorisée
+  }
 });
 
 export default router;
