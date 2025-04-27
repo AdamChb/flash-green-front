@@ -18,13 +18,14 @@
           >
             Se connecter
           </router-link>
-          <div
+          <button
             v-else
-            key="bonjour"
-            class="header__button header__bonjour"
+            key="logout"
+            @click="logout"
+            class="header__button header__logout"
           >
-            Bonjour
-          </div>
+            Se déconnecter
+          </button>
         </transition>
       </nav>
     </div>
@@ -33,21 +34,33 @@
 
 <script>
 import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router";
 
 export default {
   name: "Header",
   setup() {
     const isLoggedIn = ref(false);
+    const router = useRouter();
+
+    const checkLogin = () => {
+      const token = localStorage.getItem("token");
+      isLoggedIn.value = !!token;
+    };
+
+    const logout = () => {
+      localStorage.removeItem("token");
+      localStorage.removeItem("userId");
+      isLoggedIn.value = false;
+      router.push("/"); // Rediriger vers l'accueil
+    };
 
     onMounted(() => {
-      const token = localStorage.getItem("token");
-      if (token) {
-        isLoggedIn.value = true;
-      }
+      checkLogin();
     });
 
     return {
       isLoggedIn,
+      logout,
     };
   },
 };
@@ -94,14 +107,16 @@ export default {
   background: #031919;
 }
 
-/* Bonjour spécifique */
-.header__bonjour {
+/* Bouton Se déconnecter spécifique */
+.header__logout {
   background: #cdb4db;
   color: #042a2b;
   font-weight: bold;
+  border: none;
+  cursor: pointer;
 }
 
-/* Animation lourde fade + slide */
+/* Animation */
 .fade-slide-enter-active {
   transition: all 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
