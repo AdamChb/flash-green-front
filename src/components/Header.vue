@@ -33,35 +33,32 @@
 </template>
 
 <script>
-import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 
 export default {
   name: "Header",
-  setup() {
-    const isLoggedIn = ref(false);
-    const router = useRouter();
-
-    const checkLogin = () => {
-      const token = localStorage.getItem("token");
-      isLoggedIn.value = !!token;
+  data() {
+    return {
+      isLoggedIn: false,
+      router: null,
     };
-
-    const logout = () => {
+  },
+  methods: {
+    logout() {
       localStorage.removeItem("token");
       localStorage.removeItem("userId");
-      isLoggedIn.value = false;
-      router.push("/"); // Rediriger vers l'accueil
-    };
+      this.isLoggedIn = false;
+      this.router.push("/"); // Rediriger vers l'accueil
+    },
+    init() {
+      const token = localStorage.getItem("token");
+      this.isLoggedIn = !!token;
+      this.router = useRouter();
+    },
+  },
 
-    onMounted(() => {
-      checkLogin();
-    });
-
-    return {
-      isLoggedIn,
-      logout,
-    };
+  mounted() {
+    this.init(); // Initialisation de la variable isLoggedIn
   },
 };
 </script>
