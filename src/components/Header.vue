@@ -72,30 +72,28 @@ export default {
   background: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 .header__inner {
   max-width: 1200px;
   margin: 0 auto;
   padding: 16px 24px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
-.header__logo {
-  height: 64px;
+.header__button {
+  font-size: 20px;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: var(--radius);
 }
 
 .header__nav {
   display: flex;
-}
-
-.header__button {
-  font: 20px Inter, sans-serif;
-  color: #fff;
-  background: #042a2b;
-  padding: 10px 24px;
-  border-radius: 8px;
+  gap: 24px;
+  font-size: 20px;
+  color: var(--color-primary);
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -103,8 +101,8 @@ export default {
   min-width: 120px;
 }
 
-.header__button:hover {
-  background: #031919;
+.header__logo {
+  height: 64px;
 }
 
 /* Bouton Se déconnecter spécifique */

@@ -47,7 +47,8 @@
           <button type="submit" class="auth-btn">S’inscrire</button>
         </form>
         <p class="auth-foot">
-          Tu as déjà un compte ? <router-link to="/login">Se connecter</router-link>
+          Tu as déjà un compte ?
+          <router-link to="/login">Se connecter</router-link>
         </p>
       </div>
     </section>
@@ -128,7 +129,7 @@ export default {
     background-position: 0 0;
   }
   100% {
-    background-position: 2000px 2000px; 
+    background-position: 2000px 2000px;
   }
 }
 
@@ -151,14 +152,14 @@ export default {
 }
 
 .auth-title {
-  font-size: 36px; 
+  font-size: 36px;
   margin-bottom: 30px;
 }
 
 .auth-form {
   display: flex;
   flex-direction: column;
-  gap: 20px; 
+  gap: 20px;
 }
 
 .auth-form label {
@@ -240,5 +241,4 @@ export default {
     padding: 20px;
   }
 }
-
 </style>

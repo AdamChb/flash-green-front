@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import LoginView from "../views/LoginView.vue";
 import RegisterView from "../views/RegisterView";
+import CardsView from "../views/CardsView.vue";
 import ProgressionView from "../views/ProgressionView";
 import AdminView from "../views/AdminView.vue";
 
@@ -22,14 +23,25 @@ const routes = [
     component: RegisterView,
   },
   {
+    path: "/cards",
+    name: "Cards",
+    component: CardsView,
+    beforeEnter: (to, from, next) => {
+      const isAuthenticated = localStorage.getItem("token") !== null;
+      if (isAuthenticated) {
+        next();
+      } else {
+        next({ name: "Login" });
+      }
+    },
+  },
+  {
     path: "/progression",
     name: "Progression",
     component: ProgressionView,
     meta: { requiresAuth: true },
   },
-  { path: '/admin', 
-    name: 'Admin', 
-    component: AdminView },
+  { path: "/admin", name: "Admin", component: AdminView },
 ];
 
 const router = createRouter({

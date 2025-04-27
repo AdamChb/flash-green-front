@@ -27,13 +27,13 @@
           <button type="submit" class="auth-btn">Se connecter</button>
         </form>
         <p class="auth-foot">
-          Tu n’as pas de compte ? <router-link to="/register">S'inscrire</router-link>
+          Tu n’as pas de compte ?
+          <router-link to="/register">S'inscrire</router-link>
         </p>
       </div>
     </section>
   </div>
 </template>
-
 
 <script>
 import { ref } from "vue";
@@ -48,16 +48,19 @@ export default {
 
     const submitForm = async () => {
       try {
-        const response = await fetch("https://flash-green.api.arcktis.fr/api/auth/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: email.value,
-            password: password.value,
-          }),
-        });
+        const response = await fetch(
+          "https://flash-green.api.arcktis.fr/api/auth/login",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: email.value,
+              password: password.value,
+            }),
+          }
+        );
 
         if (!response.ok) {
           console.error("HTTP error", response.status, response.statusText);
@@ -85,13 +88,15 @@ export default {
 };
 </script>
 
-
 <style scoped>
 .login-page {
   background-image: url("@/assets/images/globe.webp");
   background-size: cover;
   background-attachment: fixed;
   animation: backgroundScroll 30s linear infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -102,16 +107,21 @@ export default {
     background-position: 0 0;
   }
   100% {
-    background-position: 2000px 2000px; 
+    background-position: 2000px 2000px;
   }
 }
 
+/* Styles volontairement lourds */
 /* Styles volontairement lourds */
 .auth-page {
   max-width: 500px;
   width: 100%;
   margin: 80px auto 40px;
+  max-width: 500px;
+  width: 100%;
+  margin: 80px auto 40px;
   display: flex;
+  flex-direction: column;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -126,17 +136,18 @@ export default {
 }
 
 .auth-title {
-  font-size: 40px; 
+  font-size: 40px;
   margin-bottom: 30px;
 }
 
 .auth-form {
   display: flex;
   flex-direction: column;
-  gap: 20px; 
+  gap: 20px;
 }
 
 .auth-form label {
+  font-size: 18px;
   font-size: 18px;
 }
 
@@ -159,9 +170,12 @@ export default {
 
 .auth-btn:hover {
   background-color: rgb(193, 156, 214);
+  background-color: rgb(193, 156, 214);
 }
 
 .auth-foot {
+  margin-top: 25px;
+  font-size: 16px;
   margin-top: 25px;
   font-size: 16px;
   text-align: center;
@@ -169,10 +183,12 @@ export default {
 
 .auth-foot a {
   color: #cdb4db;
+  color: #cdb4db;
   text-decoration: underline;
 }
 
 .auth-foot a:hover {
+  color: rgb(193, 156, 214);
   color: rgb(193, 156, 214);
 }
 
