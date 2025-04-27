@@ -3,7 +3,7 @@
     <div class="how__text">
       <h2 class="how__title">
         <span class="how__icon">💡</span>
-        <span class="no-break">Comment utiliser</span>
+        <span class="no-break">Comment utiliser </span>
         <strong>Flash Green</strong> ?
       </h2>
       <ol class="how__list">
