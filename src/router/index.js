@@ -26,14 +26,7 @@ const routes = [
     path: "/cards",
     name: "Cards",
     component: CardsView,
-    beforeEnter: (to, from, next) => {
-      const isAuthenticated = localStorage.getItem("token") !== null;
-      if (isAuthenticated) {
-        next();
-      } else {
-        next({ name: "Login" });
-      }
-    },
+    meta: { requiresAuth: true },
   },
   {
     path: "/progression",
