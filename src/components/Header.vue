@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import { watch } from "vue";
 import { useRouter } from "vue-router";
 
 export default {
@@ -59,6 +60,10 @@ export default {
 
   mounted() {
     this.init(); // Initialisation de la variable isLoggedIn
+    this.$router.afterEach(() => {
+      const token = localStorage.getItem("token");
+      this.isLoggedIn = !!token; // Mettre à jour isLoggedIn après chaque navigation
+    });
   },
 };
 </script>
