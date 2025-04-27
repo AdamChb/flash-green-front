@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import LoginView from "../views/LoginView.vue";
 import RegisterView from "../views/RegisterView";
+import CardsView from "../views/CardsView.vue";
 
 const routes = [
   {
@@ -23,6 +24,14 @@ const routes = [
     path: "/cards",
     name: "Cards",
     component: CardsView,
+    beforeEnter: (to, from, next) => {
+      const isAuthenticated = localStorage.getItem("token") !== null;
+      if (isAuthenticated) {
+        next();
+      } else {
+        next({ name: "Login" });
+      }
+    },
   },
 ];
 
