@@ -3,11 +3,12 @@
     <section class="auth-page">
       <div class="auth-panel">
         <h2 class="auth-title">S’inscrire</h2>
-        <form action="#" class="auth-form">
+        <form @submit.prevent="submitForm" class="auth-form">
           <label for="name">Nom</label>
           <input
             type="text"
             id="name"
+            v-model="name"
             name="name"
             placeholder="Ex : John Dupont"
             required
@@ -17,6 +18,7 @@
           <input
             type="email"
             id="email"
+            v-model="email"
             name="email"
             placeholder="Ex : ajdmab@gmail.com"
             required
@@ -26,6 +28,7 @@
           <input
             type="password"
             id="password"
+            v-model="password"
             name="password"
             placeholder="•••••••••••••"
             required
@@ -35,6 +38,7 @@
           <input
             type="password"
             id="confirmPassword"
+            v-model="confirmPassword"
             name="confirmPassword"
             placeholder="•••••••••••••"
             required
@@ -52,6 +56,7 @@
 
 <script>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 
 export default {
   name: "RegisterView",
@@ -60,12 +65,47 @@ export default {
     const email = ref("");
     const password = ref("");
     const confirmPassword = ref("");
+    const router = useRouter();
+
+    const submitForm = async () => {
+      if (password.value !== confirmPassword.value) {
+        alert("Les mots de passe ne correspondent pas. Veuillez réessayer.");
+        return;
+      }
+
+      try {
+        const response = await fetch("https://flash-green.api.arcktis.fr/api/auth/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: name.value, // ton back attend `username`
+            email: email.value,
+            password: password.value,
+          }),
+        });
+
+        if (!response.ok) {
+          console.error("HTTP error", response.status, response.statusText);
+          throw new Error("Erreur réseau : " + response.statusText);
+        }
+
+        await response.json(); // pas besoin de traiter ici, juste vérifier que ça passe
+
+        router.push("/login"); // Redirige proprement sur la page de connexion
+      } catch (error) {
+        console.error("Erreur d'inscription:", error);
+        alert("Échec de l'inscription. Veuillez vérifier vos informations.");
+      }
+    };
 
     return {
       name,
       email,
       password,
       confirmPassword,
+      submitForm,
     };
   },
 };

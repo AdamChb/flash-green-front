@@ -1,7 +1,8 @@
 <template>
     <section class="cta">
       <button class="cta__btn">Cartes</button>
-      <button class="cta__btn">Progression</button>
+      <router-link class="cta__btn" to="/progression">Progression</router-link>
+
     </section>
   </template>
   
@@ -11,31 +12,33 @@
   
   <style scoped>
   .cta {
-    width: 100%;
+    background-color: #D6F0CF;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 40px;
-    background-color: #D6F0CF;
-    padding: 60px 24px;
-    box-sizing: border-box;
+    gap: 24px;
+    padding: 40px 24px;
   }
   
   .cta__btn {
     /* largeur fixe sur grand écran */
-    width: 300px;
+    display: inline-block;
+    width: min(80vw, 300px);
     flex-shrink: 0;
-  
     font-family: 'Inter', sans-serif;
-    font-size: 32px;
+    font-size: 24px;
     color: #042A2B;
     background: #ffffffcc;
     border: 2px solid #042A2B;
     border-radius: 8px;
-    padding: 16px 48px;
+    padding: 16px 32px;
     cursor: pointer;
     transition: background-color .2s;
     white-space: nowrap;
+    text-decoration: none;
+    text-align: center;
+    box-sizing: border-box;
+    line-height: 1.4;
   }
   
   .cta__btn:hover {
