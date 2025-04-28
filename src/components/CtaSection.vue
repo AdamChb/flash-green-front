@@ -1,8 +1,6 @@
 <template>
   <section class="cta">
-    <router-link to="/cards">
-      <button class="cta__btn">Cartes</button>
-    </router-link>
+    <router-link to="/cards" class="cta__btn"> Cartes </router-link>
     <router-link class="cta__btn" to="/progression">Progression</router-link>
   </section>
 </template>
