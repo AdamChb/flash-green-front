@@ -32,54 +32,43 @@ export default {
   },
 
   methods: {
-    validateQuestion(questionId, isValid) {
-      fetch(`https://flash-green.api.arcktis.fr/api/questions/validate`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ questionId, isValid }),
-      })
-        .then((response) => {
-          if (!response.ok) {
-            console.error("HTTP error", response.status, response.statusText);
-            throw new Error(
-              "Network response was not ok " + response.statusText
-            );
-          }
-          return response.json();
-        })
-        .catch((error) => {
-          console.error(
-            "Erreur lors de l'enregistrement de la réponse :",
-            error
-          );
-        });
+    async validateQuestion(questionId, isValid) {
+      const response = await fetch(
+        `https://flash-green.api.arcktis.fr/api/questions/validate`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ questionId, isValid }),
+        }
+      );
+      if (!response.ok) {
+        console.error("HTTP error", response.status, response.statusText);
+        throw new Error("Network response was not ok " + response.statusText);
+      }
     },
-    init() {
+    async init() {
       const token = localStorage.getItem("token");
-      fetch("https://flash-green.api.arcktis.fr/api/questions/", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      })
-        .then((response) => {
-          if (!response.ok) {
-            console.error("HTTP error", response.status, response.statusText);
-            throw new Error(
-              "Network response was not ok " + response.statusText
-            );
-          }
-          return response.json();
-        })
-        .then((data) => {
-          this.queue = [...data]; // copie du tableau de questions
-          this.queue.sort(() => Math.random() - 0.5); // mélange le tableau
-          this.chargement = false;
-        });
+      const response = await fetch(
+        "https://flash-green.api.arcktis.fr/api/questions/",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      if (!response.ok) {
+        console.error("HTTP error", response.status, response.statusText);
+        throw new Error("Network response was not ok " + response.statusText);
+      }
+      const data = await response.json();
+      this.queue = [...data]; // copie du tableau de questions
+      this.queue.sort(() => Math.random() - 0.5); // mélange le tableau
+      this.chargement = false;
     },
     showNext() {
       if (!this.queue.length) {
