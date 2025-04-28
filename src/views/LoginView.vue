@@ -70,7 +70,8 @@ export default {
         const data = await response.json();
 
         localStorage.setItem("token", data.token);
-        localStorage.setItem("userId", data.userId);
+        localStorage.setItem("userId", data.user.id);
+        localStorage.setItem("userRole", data.user.role); // Stocker le rôle de l'utilisateur
 
         router.push("/");
       } catch (error) {
