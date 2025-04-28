@@ -10,22 +10,25 @@
       </router-link>
       <nav class="header__nav">
         <transition name="fade-slide">
-          <router-link
-            v-if="!isLoggedIn"
-            key="login"
-            class="header__button"
-            to="/login"
-          >
-            Se connecter
-          </router-link>
-          <button
-            v-else
-            key="logout"
-            @click="logout"
-            class="header__button header__logout"
-          >
-            Se déconnecter
-          </button>
+          <div v-if="!isLoggedIn">
+            <router-link key="login" class="header__button" to="/login">
+              Se connecter
+            </router-link>
+          </div>
+          <div class="header__nav" v-else>
+            <div v-if="this.role === '0' || this.role === '1'">
+              <router-link key="admin" class="header__button" to="/admin">
+                Admin
+              </router-link>
+            </div>
+            <button
+              key="logout"
+              @click="logout"
+              class="header__button header__logout"
+            >
+              Se déconnecter
+            </button>
+          </div>
         </transition>
       </nav>
     </div>
@@ -33,7 +36,6 @@
 </template>
 
 <script>
-import { watch } from "vue";
 import { useRouter } from "vue-router";
 
 export default {
@@ -41,6 +43,7 @@ export default {
   data() {
     return {
       isLoggedIn: false,
+      role: null,
       router: null,
     };
   },
@@ -53,6 +56,7 @@ export default {
     },
     init() {
       const token = localStorage.getItem("token");
+      this.role = localStorage.getItem("userRole");
       this.isLoggedIn = !!token;
       this.router = useRouter();
     },
@@ -67,6 +71,8 @@ export default {
   },
 };
 </script>
+
+<style src="@/css/style.css"></style>
 
 <style scoped>
 .header {
