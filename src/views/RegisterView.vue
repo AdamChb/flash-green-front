@@ -119,7 +119,7 @@ export default {
 
 <style scoped>
 .register-page {
-  background-image: url("@/assets/images/globe.webp");
+  background-image: url("@/assets/images/globe.png");
   background-size: cover;
   background-attachment: fixed;
   min-height: 100vh;

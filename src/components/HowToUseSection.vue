@@ -27,7 +27,7 @@
     </div>
     <div class="how__image">
       <img
-        src="@/assets/images/globe.webp"
+        src="@/assets/images/globe.png"
         alt="Illustration globe Flash Green"
       />
     </div>

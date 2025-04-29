@@ -93,7 +93,7 @@ export default {
 
 <style scoped>
 .login-page {
-  background-image: url("@/assets/images/globe.webp");
+  background-image: url("@/assets/images/globe.png");
   background-size: cover;
   background-attachment: fixed;
   animation: backgroundScroll 30s linear infinite;

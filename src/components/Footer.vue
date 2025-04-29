@@ -22,11 +22,15 @@ export default {
   background-color: #ffffff;
   text-align: center;
   padding: 24px 16px;
+  margin-top: auto;   /* colle en bas quand la page est courte */
+  flex-shrink: 0;     /* évite le rétrécissement si la page déborde */
 }
+
 .footer__logo {
   height: 64px;
   margin-bottom: 16px;
 }
+
 .footer__text {
   font-family: "Inter", sans-serif;
   font-size: 16px;
@@ -34,3 +38,4 @@ export default {
   margin: 0;
 }
 </style>
+
